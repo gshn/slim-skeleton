@@ -64,6 +64,21 @@ return [
         return new BasePathMiddleware($container->get(App::class));
     },
 
+    PDO::class => function (ContainerInterface $container) {
+        $db = $container->get('settings')['db'];
+        var_dump($db);
+        try {
+            $pdo = new PDO("mysql:dbname={$db['database']};host={$db['host']};port={$db['port']};charset={$db['encoding']}", $db['username'], $db['password']);
+        } catch (Exception $ex) {
+            throw new PDOException($ex->getMessage());
+        }
+
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+        return $pdo;
+    },
+
     LoggerInterface::class => function (ContainerInterface $container) {
         $settings = $container->get('settings')['logger'];
         $logger = new Logger('app');
