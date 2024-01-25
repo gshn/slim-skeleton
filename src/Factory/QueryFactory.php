@@ -2,6 +2,7 @@
 
 namespace App\Factory;
 
+use InvalidArgumentException;
 use PDO;
 use PDOStatement;
 
@@ -29,7 +30,7 @@ final class QueryFactory
     public function insert(string $table, array $data): string|false
     {
         if (empty($data)) {
-            return false;
+            throw new InvalidArgumentException();
         }
 
         $sql = "INSERT INTO {$table} ";
@@ -61,7 +62,7 @@ final class QueryFactory
     public function update(string $table, array $data, array $where): PDOStatement|false
     {
         if (empty($data) || empty($where)) {
-            return false;
+            throw new InvalidArgumentException();
         }
 
         $sql = "UPDATE {$table} ";
@@ -76,7 +77,7 @@ final class QueryFactory
     public function delete(string $table, array $where): PDOStatement|false
     {
         if (empty($where)) {
-            return false;
+            throw new InvalidArgumentException();
         }
 
         $sql = "DELETE FROM {$table} ";
