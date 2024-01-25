@@ -2,7 +2,9 @@
 
 namespace App\Test\Traits;
 
+use App\Factory\QueryFactory;
 use DI\ContainerBuilder;
+use PDO;
 use Slim\App;
 
 trait AppTestTrait
@@ -12,6 +14,7 @@ trait AppTestTrait
     use HttpJsonTestTrait;
 
     protected App $app;
+    protected QueryFactory $queryFactory;
 
     /**
      * Before each test.
@@ -35,5 +38,7 @@ trait AppTestTrait
         if (method_exists($this, 'setUpDatabase')) {
             $this->setUpDatabase(__DIR__ . '/../../resources/schema/schema.sql');
         }
+
+        $this->queryFactory = new QueryFactory($container->get(PDO::class));
     }
 }
