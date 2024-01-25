@@ -68,7 +68,11 @@ return [
         $db = $container->get('settings')['db'];
         var_dump($db);
         try {
-            $pdo = new PDO("mysql:dbname={$db['database']};host={$db['host']};port={$db['port']};charset={$db['encoding']}", $db['username'], $db['password']);
+            $pdo = new PDO(
+                "mysql:dbname={$db['database']};host={$db['host']};port={$db['port']};charset={$db['encoding']}",
+                $db['username'],
+                $db['password']
+            );
         } catch (Exception $ex) {
             throw new PDOException($ex->getMessage());
         }
