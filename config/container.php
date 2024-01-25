@@ -66,7 +66,6 @@ return [
 
     PDO::class => function (ContainerInterface $container) {
         $db = $container->get('settings')['db'];
-        var_dump($db);
         try {
             $pdo = new PDO(
                 "mysql:dbname={$db['database']};host={$db['host']};port={$db['port']};charset={$db['encoding']}",
