@@ -54,6 +54,7 @@ final class QueryFactory
         }
 
         $sql .= QueryFactory::buildWhereString($where);
+
         return $this->query($sql, array_values($where));
     }
 
@@ -68,6 +69,7 @@ final class QueryFactory
         $sql .= QueryFactory::buildWhereString($where);
 
         $values = array_merge(array_values($data), array_values($where));
+
         return $this->query($sql, $values);
     }
 
@@ -79,6 +81,7 @@ final class QueryFactory
 
         $sql = "DELETE FROM {$table} ";
         $sql .= QueryFactory::buildWhereString($where);
+
         return $this->query($sql, array_values($where));
     }
 
@@ -109,7 +112,6 @@ final class QueryFactory
             if ($key !== $last) {
                 $sql .= 'AND ';
             }
-
         }
 
         return $sql;
