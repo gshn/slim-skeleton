@@ -30,5 +30,8 @@ return function (array $settings): array {
     //    $settings['db']['password'] = $_ENV['MYSQL_PASSWORD'] ?? '';
     // }
 
+    // users.hash salt
+    $settings['salt'] = '';
+
     return $settings;
 };
