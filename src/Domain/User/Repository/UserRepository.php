@@ -6,7 +6,7 @@ use App\Domain\User\Data\User;
 use App\Factory\QueryFactory;
 use DI\NotFoundException;
 
-class UserRepository
+final class UserRepository
 {
     private QueryFactory $queryFactory;
 
