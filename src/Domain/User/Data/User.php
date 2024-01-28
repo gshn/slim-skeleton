@@ -2,9 +2,9 @@
 
 namespace App\Domain\User\Data;
 
-use App\Domain\CommonData;
+use App\Domain\Domain;
 
-final class User extends CommonData
+final class User extends Domain
 {
     public ?int $id;
     public ?string $created_at;

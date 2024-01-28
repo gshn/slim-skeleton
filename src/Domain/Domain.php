@@ -2,7 +2,7 @@
 
 namespace App\Domain;
 
-abstract class CommonData
+abstract class Domain
 {
     // 배열의 키가 클래스 맴버가 아닐 경우 필터링
     public static function filterProperty(array $array): array
