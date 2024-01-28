@@ -9,5 +9,8 @@ return function (array $settings): array {
     $settings['db']['username'] = 'root';
     $settings['db']['password'] = '';
 
+    // users.hash salt
+    $settings['salt'] = '';
+
     return $settings;
 };

@@ -13,5 +13,8 @@ return function (array $settings): array {
     // Database
     $settings['db']['database'] = 'slim_skeleton_dev';
 
+    // users.hash salt
+    $settings['salt'] = '';
+
     return $settings;
 };

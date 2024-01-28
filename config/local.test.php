@@ -8,5 +8,8 @@ return function (array $settings): array {
     // Database
     $settings['db']['database'] = 'slim_skeleton_test';
 
+    // users.hash salt
+    $settings['salt'] = '';
+
     return $settings;
 };
