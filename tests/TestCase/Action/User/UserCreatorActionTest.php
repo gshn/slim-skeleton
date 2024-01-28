@@ -30,7 +30,7 @@ class UserCreatorActionTest extends TestCase
         // then
         $this->assertSame(StatusCodeInterface::STATUS_CREATED, $response->getStatusCode());
         $this->assertJsonContentType($response);
-        $this->assertJsonData($response, ['token' => '7pQmA5MM']);
+        $this->assertJsonData($response, ['token' => 'a4ayc_80']);
 
         // Check database
         $this->assertTableRowCount(1, 'users');
